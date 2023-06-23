@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<head>
+  <style>
+   
+   .text{
+    background-color: beige;
+    background-attachment: fixed;
+    width: 200px
+   }
+    #text {
+      position: absolute;
+      left: -100%;
+      transition: all 3s;
+      padding: 10px;
+    }
+    .square {
+      
+      width: 100px;
+      height: 100px;
+      border: 1px solid black;
+      display: inline-block;
+      text-align: center;
+      line-height: 100px;
+    }
+    #bottom-text {
+      font-size: 24px;
+      
+    }
+    .red {
+      color: red;
+      text-transform: uppercase;
+    }
+    .green {
+      color: green;
+      text-transform: uppercase;
+    }
+    .blue {
+      color: blue;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+  
+  <div id="text" class="text"></div>
+  <br><br><br><br><br><br>
+  <div class="square" onclick="changeColor(this)">30 дней О</div>
+  <div class="square" onclick="changeColor(this)">Портфолио</div>
+  <div class="square" onclick="changeColor(this)">Day 27</div>
+
+
+  <br><br><br>
+ 
+  <div id="bottom-text">
+    30 Days Of JavaScript: Portfolio : <span id="bottom-text-changing"></span>
+  </div>
+
+  <script>
+    const textElement = document.querySelector('#text');
+    const bottomTextElement = document.querySelector('#bottom-text-changing');
+    const messages = ['😃 Это 30 дней JavaScript', '😄 Это тест', '😊 Привет, мир', '😎 это Портфолио'];
+    const bottomMessages = ['<span class="red">Тест</span>', '<span class="green">JavaScript</span>', '<span class="blue">30 Days</span>'];
+    let index = 0;
+
+    setInterval(() => {
+      textElement.textContent = messages[index];
+      bottomTextElement.innerHTML = bottomMessages[index];
+      textElement.style.left = '0';
+      setTimeout(() => {
+        textElement.style.left = '-100%';
+        index = (index + 1) % messages.length;
+      }, 900);
+    }, 1000);
+
+    function changeColor(element) {
+      element.style.backgroundColor = element.style.backgroundColor === 'lightyellow' ? 'transparent' : 'lightyellow';
+    }
+  </script>
+</body>
+</html>
+
+    <script src="Event-Listeners.js"></script>
+  </body>
+</html>
+
+    
